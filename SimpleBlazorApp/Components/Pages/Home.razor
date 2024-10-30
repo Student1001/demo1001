@@ -1,0 +1,25 @@
+﻿@page "/"
+@inject IConfiguration Config
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, YouTube !</h1>
+<hr/>
+
+<h4>
+    Default Connection String: <span style="color:red">@defaultConnection</span>
+</h4>
+
+@code  
+{
+    //fields
+    string defaultConnection = "";
+
+    //lcm
+    protected override void OnInitialized()
+    {
+        defaultConnection = Config.GetConnectionString("Default") ?? "unknown";
+
+
+    }
+}
